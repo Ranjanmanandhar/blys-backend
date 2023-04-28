@@ -3,16 +3,16 @@ var cors = require('cors')
 
 const app = express()
 
-var corsOptions = {
-    origin: 'https://blys-frontend.onrender.com/',
-    optionsSuccessStatus: 200 
-}
+app.use(cors({
+    origin: 'https://blys-frontend.onrender.com/'
+}));
 
-app.get('/api',cors(corsOptions),(req,res) => {
+
+app.get('/api',(req,res) => {
     res.json({"users":['1','2']})
 })
 
-app.post('/otp/verify',cors(corsOptions),(req,res) => {
+app.post('/otp/verify',(req,res) => {
     return res.json("SUCCESS");
 })
 
